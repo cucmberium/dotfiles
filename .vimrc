@@ -58,12 +58,13 @@ NeoBundleLazy "Shougo/vimfiler.vim", {
     \ }}
 
 
+" autocmd FileType python set omnifunc=jedi#completions
 if !empty(neobundle#get("jedi-vim"))
-    let g:jedi#completions_command="<C-N>"
-    let g:jedi#show_call_signatures=0
-
     let g:jedi#auto_initialization=1
     let g:jedi#auto_vim_configuration=1
+
+    let g:jedi#completions_command="<C-N>"
+    let g:jedi#show_call_signatures=1
 endif
 
 call neobundle#end()
@@ -86,7 +87,7 @@ set ruler
 " 検索が末尾まで進んだらファイル先頭に戻る
 set wrapscan
 
-" タブ文字を表示 
+" タブ文字を表示
 set list
 set listchars=tab:>-
 
@@ -145,8 +146,7 @@ filetype plugin indent on
 autocmd FileType python set tabstop=4
 autocmd FileType python set expandtab
 autocmd FileType python let b:did_ftplugin = 1
-autocmd FileType python set omnifunc=jedi#completions
 autocmd FileType python set completeopt-=preview
 
 " スキンの設定
-colorscheme Tomorrow-Night-Bright 
+colorscheme Tomorrow-Night-Bright

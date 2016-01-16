@@ -2,7 +2,7 @@
 export SHELL=/bin/zsh
 
 # Editor and Lang Settings
-export EDITOR=emacs
+export EDITOR=vim
 export LANG=ja_JP.UTF8
 
 # History
@@ -61,6 +61,4 @@ alias la='ls -a -F --color'
 alias du='du -h'
 alias df='df -h'
 
-alias sl='ls'
-alias sl-train='sl'
 alias pyon='pyonpyon'

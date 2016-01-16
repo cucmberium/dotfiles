@@ -29,14 +29,11 @@ let g:neobundle_default_git_protocol='https'
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle "Shougo/echodoc.vim"
+" NeoBundle "Shougo/echodoc.vim"
 NeoBundle "Shougo/neocomplete.vim"
-" NeoBundle "tomasr/molokai"
 NeoBundle "chriskempson/vim-tomorrow-theme"
-NeoBundle "Shougo/vimfiler.vim"
 NeoBundle "Shougo/vimshell.vim"
 NeoBundle "Shougo/vinarise.vim"
-NeoBundle "Shougo/unite.vim"
 NeoBundle "ujihisa/unite-colorscheme"
 
 NeoBundleLazy "davidhalter/jedi-vim", {
@@ -48,6 +45,18 @@ NeoBundleLazy "nvie/vim-flake8", {
     \ "autoload" : {
     \     "filetypes": ["python", "python3", "djangohtml"]
     \ }}
+
+NeoBundleLazy "Shougo/unite.vim", {
+    \ "autoload" : {
+    \     "commands": ["Unite"]
+    \ }}
+
+NeoBundleLazy "Shougo/vimfiler.vim", {
+    \ "depends" : ["Shougo/unite.vim"],
+    \ "autoload" : {
+    \     "commands": ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
+    \ }}
+
 
 if !empty(neobundle#get("jedi-vim"))
     let g:jedi#completions_command="<C-N>"
@@ -122,9 +131,6 @@ set wildmenu
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
-
-" let g:python_highlight_all = 1
-
 " カーソルを括弧内に突っ込む
 imap {} {}<Left>
 imap [] []<Left>
@@ -132,10 +138,8 @@ imap () ()<Left>
 imap "" ""<Left>
 imap '' ''<Left>
 
-
 " ファイルタイプ関連を有効に
 filetype plugin indent on
-
 
 " Python用の設定
 autocmd FileType python set tabstop=4
@@ -144,5 +148,5 @@ autocmd FileType python let b:did_ftplugin = 1
 autocmd FileType python set omnifunc=jedi#completions
 autocmd FileType python set completeopt-=preview
 
+" スキンの設定
 colorscheme Tomorrow-Night-Bright 
-" let g:molokai_original=1

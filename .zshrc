@@ -55,6 +55,8 @@ setopt hist_reduce_blanks
 
 
 # Alias
+alias tmux="TERM=screen-256color-bce tmux"
+
 alias ls='ls -F --color'
 alias ll='ls -l -h -F --color'
 alias la='ls -a -F --color'

@@ -9,6 +9,11 @@ filetype off
 " 構文ハイライト
 syntax enable
 
+" エンコード関連
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,utf-8,ucs-8,cp932,sjis
+
 " ターミナルで256色で表示
 set t_Co=256
 
@@ -35,6 +40,8 @@ NeoBundle "chriskempson/vim-tomorrow-theme"
 NeoBundle "Shougo/vimshell.vim"
 NeoBundle "Shougo/vinarise.vim"
 NeoBundle "ujihisa/unite-colorscheme"
+NeoBundle "tomasr/molokai"
+NeoBundle "sjl/badwolf"
 
 NeoBundleLazy "davidhalter/jedi-vim", {
     \ "autoload" : {
@@ -133,11 +140,11 @@ set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
 " カーソルを括弧内に突っ込む
-imap {} {}<Left>
-imap [] []<Left>
-imap () ()<Left>
-imap "" ""<Left>
-imap '' ''<Left>
+" imap {} {}<Left>
+" imap [] []<Left>
+" imap () ()<Left>
+" imap "" ""<Left>
+" imap '' ''<Left>
 
 " ファイルタイプ関連を有効に
 filetype plugin indent on
@@ -148,5 +155,6 @@ autocmd FileType python set expandtab
 autocmd FileType python let b:did_ftplugin = 1
 autocmd FileType python set completeopt-=preview
 
-" スキンの設定
-colorscheme Tomorrow-Night-Bright
+" カラースキームの設定
+colorscheme molokai 
+highlight Normal ctermbg=none

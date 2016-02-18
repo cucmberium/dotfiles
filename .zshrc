@@ -7,8 +7,8 @@ export LANG=ja_JP.UTF8
 
 # History
 HISTFILE=~/.histfile
-HISTSIZE=8192
-SAVEHIST=8192
+HISTSIZE=16384
+SAVEHIST=16384
 
 
 # Bindkey

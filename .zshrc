@@ -5,6 +5,8 @@ export SHELL=/bin/zsh
 export EDITOR=vim
 export LANG=ja_JP.UTF8
 
+export PATH=$PATH:~/.gem/ruby/2.1.0/bin
+
 # History
 HISTFILE=~/.histfile
 HISTSIZE=16384
@@ -64,3 +66,5 @@ alias du='du -h'
 alias df='df -h'
 
 alias pyon='pyonpyon'
+
+alias tenki='curl http://wttr.in/nagaoka'

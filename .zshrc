@@ -68,3 +68,12 @@ alias df='df -h'
 alias pyon='pyonpyon'
 
 alias tenki='curl http://wttr.in/nagaoka'
+
+
+# Python
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+alias pip-update-all-package='pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U'

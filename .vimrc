@@ -43,10 +43,21 @@ NeoBundle "ujihisa/unite-colorscheme"
 NeoBundle "tomasr/molokai"
 NeoBundle "sjl/badwolf"
 
+NeoBundleLazy "lambdalisue/vim-django-support", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"]
+      \ }}
+
 NeoBundleLazy "davidhalter/jedi-vim", {
     \ "autoload" : {
     \     "filetypes": ["python", "python3", "djangohtml"]
     \ }}
+
+NeoBundleLazy "lambdalisue/vim-pyenv", {
+      \ "depends": ['davidhalter/jedi-vim'],
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"]
+      \ }}
 
 NeoBundleLazy "nvie/vim-flake8", {
     \ "autoload" : {
@@ -140,11 +151,11 @@ set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
 " カーソルを括弧内に突っ込む
-" imap {} {}<Left>
-" imap [] []<Left>
-" imap () ()<Left>
-" imap "" ""<Left>
-" imap '' ''<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
 
 " ファイルタイプ関連を有効に
 filetype plugin indent on
@@ -154,6 +165,7 @@ autocmd FileType python set tabstop=4
 autocmd FileType python set expandtab
 autocmd FileType python let b:did_ftplugin = 1
 autocmd FileType python set completeopt-=preview
+autocmd FileType python inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " カラースキームの設定
 colorscheme molokai 

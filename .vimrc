@@ -12,7 +12,7 @@ syntax enable
 " エンコード関連
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,utf-8,ucs-8,cp932,sjis
+set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp,ucs-8,cp932
 
 " ターミナルで256色で表示
 set t_Co=256
@@ -151,11 +151,9 @@ set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
 " カーソルを括弧内に突っ込む
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
+" inoremap { {}<Left>
+" inoremap [ []<Left>
+" inoremap ( ()<Left>
 
 " ファイルタイプ関連を有効に
 filetype plugin indent on

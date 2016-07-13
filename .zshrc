@@ -15,9 +15,10 @@ SAVEHIST=16384
 
 # Bindkey
 bindkey -v
+stty stop undef
+stty start undef
 
-
-zstyle :compinstall filename '/home/clarkdale/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 
 # Color and Completion
@@ -64,11 +65,13 @@ alias ll='ls -l -h -F --color'
 alias la='ls -a -F --color'
 alias du='du -h'
 alias df='df -h'
+alias grep='grep --color=always'
+alias less='less -R'
 
 alias pyon='pyonpyon'
+alias nyancat='telnet nyancat.dakko.us'
 
 alias tenki='curl http://wttr.in/nagaoka'
-
 
 # Python
 export PYENV_ROOT=$HOME/.pyenv
@@ -77,3 +80,11 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 alias pip-update-all-package='pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U'
+
+# FuzzyFinder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Emoji
+source ~/.emoji-cli/emoji-cli.zsh
+
+

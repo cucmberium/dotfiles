@@ -23,11 +23,17 @@ set fileformats=unix
 " ビジュアルモードの矩形選択で文字のないところへの選択が可能に
 set virtualedit=block
 
-" NeoBundle
+" neobundle settings {{{
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
+  " neobundle をインストールしていない場合は自動インストール
+  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+    echo "install neobundle..."
+    " vim からコマンド呼び出しているだけ neobundle.vim のクローン
+    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+  endif
+  " runtimepath の追加は必須
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-
 call neobundle#begin(expand('~/.vim/bundle'))
 
 let g:neobundle_default_git_protocol='https'

@@ -3,9 +3,10 @@ export SHELL=/bin/zsh
 
 # Editor and Lang Settings
 export EDITOR=vim
+export LC_CTYPE=ja_JP.UTF8
 export LANG=ja_JP.UTF8
 
-export PATH=$PATH:~/.gem/ruby/2.1.0/bin
+export PATH=/usr/local:$PATH
 
 # History
 HISTFILE=~/.histfile
@@ -24,17 +25,17 @@ zstyle :compinstall filename '~/.zshrc'
 # Color and Completion
 
 # for Other Linux
-#autoload -Uz compinit
-#compinit
-#export ZSH=$HOME/.oh-my-zsh
-#export ZSH_THEME="gentoo"
-#source $ZSH/oh-my-zsh.sh
+autoload -Uz compinit
+compinit
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="gentoo"
+source $ZSH/oh-my-zsh.sh
 
 # for Gentoo Linux
-autoload -U compinit promptinit
-compinit
-promptinit; prompt gentoo
-zstyle ':completion::complete:*' use-cache 1
+#autoload -U compinit promptinit
+#compinit
+#promptinit; prompt gentoo
+#zstyle ':completion::complete:*' use-cache 1
 
 
 export LSCOLORS=Exfxcxdxbxegedabagacad
@@ -60,15 +61,15 @@ setopt hist_reduce_blanks
 # Alias
 alias tmux="TERM=screen-256color-bce tmux"
 
-alias ls='ls -F --color'
-alias ll='ls -l -h -F --color'
-alias la='ls -a -F --color'
+alias ls='ls -F -G'
+alias ll='ls -l -h -F -G'
+alias la='ls -a -F -G'
 alias du='du -h'
 alias df='df -h'
 alias grep='grep --color=always'
 alias less='less -R'
 
-alias pyon='pyonpyon'
+#alias pyon='pyonpyon'
 alias nyancat='telnet nyancat.dakko.us'
 
 alias tenki='curl http://wttr.in/nagaoka'
@@ -82,9 +83,9 @@ eval "$(pyenv virtualenv-init -)"
 alias pip-update-all-package='pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U'
 
 # FuzzyFinder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Emoji
-source ~/.emoji-cli/emoji-cli.zsh
+#source ~/.emoji-cli/emoji-cli.zsh
 
 

@@ -1,0 +1,20 @@
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+[alias]
+  a = add
+  o = checkout
+  c = commit
+  p = push
+  pl = pull
+  dw = diff --color-words
+  dc = diff --staged
+  br = branch
+  bm = branch --merged 
+  stash = stash -u
+  pf = push --force-with-lease
+  plog = log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso
+[diff]
+  compactionHeuristic = true

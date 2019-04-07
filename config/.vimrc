@@ -1,37 +1,37 @@
-" .vimrc of clovertown
+" .vimrc
 
-" vi¸ß´¹Ìµ¸ú²½
+" viäº’æ›ç„¡åŠ¹åŒ–
 set nocompatible
 
-" ¥Õ¥¡¥¤¥ë¥¿¥¤¥×¤Î¼«Æ°¸¡½ĞÌµ¸ú²½
+" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ã®è‡ªå‹•æ¤œå‡ºç„¡åŠ¹åŒ–
 filetype off
 
-" ¹½Ê¸¥Ï¥¤¥é¥¤¥È
+" æ§‹æ–‡ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 syntax enable
 
-" ¥¨¥ó¥³¡¼¥É´ØÏ¢
+" ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰é–¢é€£
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp,ucs-8,cp932
 
-" ¥¿¡¼¥ß¥Ê¥ë¤Ç256¿§¤ÇÉ½¼¨
+" ã‚¿ãƒ¼ãƒŸãƒŠãƒ«ã§256è‰²ã§è¡¨ç¤º
 set t_Co=256
 
-" ²ş¹Ô¤ò\n¤Ë¤¹¤ë
+" æ”¹è¡Œã‚’\nã«ã™ã‚‹
 set fileformats=unix
 
-" ¥Ó¥¸¥å¥¢¥ë¥â¡¼¥É¤Î¶ë·ÁÁªÂò¤ÇÊ¸»ú¤Î¤Ê¤¤¤È¤³¤í¤Ø¤ÎÁªÂò¤¬²ÄÇ½¤Ë
+" ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ãƒ¢ãƒ¼ãƒ‰ã®çŸ©å½¢é¸æŠã§æ–‡å­—ã®ãªã„ã¨ã“ã‚ã¸ã®é¸æŠãŒå¯èƒ½ã«
 set virtualedit=block
 
 " neobundle settings {{{
 if has('vim_starting')
-  " neobundle ¤ò¥¤¥ó¥¹¥È¡¼¥ë¤·¤Æ¤¤¤Ê¤¤¾ì¹ç¤Ï¼«Æ°¥¤¥ó¥¹¥È¡¼¥ë
+  " neobundle ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ã„ãªã„å ´åˆã¯è‡ªå‹•ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
   if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
     echo "install neobundle..."
-    " vim ¤«¤é¥³¥Ş¥ó¥É¸Æ¤Ó½Ğ¤·¤Æ¤¤¤ë¤À¤± neobundle.vim ¤Î¥¯¥í¡¼¥ó
+    " vim ã‹ã‚‰ã‚³ãƒãƒ³ãƒ‰å‘¼ã³å‡ºã—ã¦ã„ã‚‹ã ã‘ neobundle.vim ã®ã‚¯ãƒ­ãƒ¼ãƒ³
     :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
   endif
-  " runtimepath ¤ÎÄÉ²Ã¤ÏÉ¬¿Ü
+  " runtimepath ã®è¿½åŠ ã¯å¿…é ˆ
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle'))
@@ -93,84 +93,84 @@ endif
 
 call neobundle#end()
 
-" ¸¡º÷»ş¤ËÂçÊ¸»ú¾®Ê¸»ú¤ò¶èÊÌ¤·¤Ê¤¤
+" æ¤œç´¢æ™‚ã«å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 set ignorecase
 
-" ¸¡º÷¥Ñ¥¿¡¼¥ó¤ËÂçÊ¸»ú¤¬´Ş¤Ş¤ì¤ë¾ì¹ç¤Î¤ß¶èÊÌ
+" æ¤œç´¢ãƒ‘ã‚¿ãƒ¼ãƒ³ã«å¤§æ–‡å­—ãŒå«ã¾ã‚Œã‚‹å ´åˆã®ã¿åŒºåˆ¥
 set smartcase
 
-" ¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¤Ë¸¡º÷
+" ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã«æ¤œç´¢
 set incsearch
 
-" ¸¡º÷¥Ï¥¤¥é¥¤¥È¤ò°ì»şÅª¤Ë¾Ã¤¹
+" æ¤œç´¢ãƒã‚¤ãƒ©ã‚¤ãƒˆã‚’ä¸€æ™‚çš„ã«æ¶ˆã™
 set nohlsearch
 
-" ¥«¡¼¥½¥ë¤¬²¿¹Ô²¿Îó¤Ë¤¢¤ë¤«¤É¤¦¤«¤òÉ½¼¨
+" ã‚«ãƒ¼ã‚½ãƒ«ãŒä½•è¡Œä½•åˆ—ã«ã‚ã‚‹ã‹ã©ã†ã‹ã‚’è¡¨ç¤º
 set ruler
 
-" ¸¡º÷¤¬ËöÈø¤Ş¤Ç¿Ê¤ó¤À¤é¥Õ¥¡¥¤¥ëÀèÆ¬¤ËÌá¤ë
+" æ¤œç´¢ãŒæœ«å°¾ã¾ã§é€²ã‚“ã ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«å…ˆé ­ã«æˆ»ã‚‹
 set wrapscan
 
-" ¥¿¥ÖÊ¸»ú¤òÉ½¼¨
+" ã‚¿ãƒ–æ–‡å­—ã‚’è¡¨ç¤º
 set list
 set listchars=tab:>-
 
-" ¹Ô¿ô¤òÉ½¼¨
+" è¡Œæ•°ã‚’è¡¨ç¤º
 set number
 
-" Á´³ÑÊ¸»ú¤ò2¸Ä¤Î¥¹¥Ú¡¼¥¹¤ÇÉ½¼¨
+" å…¨è§’æ–‡å­—ã‚’2å€‹ã®ã‚¹ãƒšãƒ¼ã‚¹ã§è¡¨ç¤º
 set ambiwidth=double
 
-" ¥¹¥Æ¡¼¥¿¥¹¥é¥¤¥ó¤ò²¼¤«¤éÆó¹ÔÌÜ¤ËÉ½¼¨
+" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã‚’ä¸‹ã‹ã‚‰äºŒè¡Œç›®ã«è¡¨ç¤º
 set laststatus=2
 
-" ¥¿¥Ö¥Ú¡¼¥¸¤òÉ½¼¨
+" ã‚¿ãƒ–ãƒšãƒ¼ã‚¸ã‚’è¡¨ç¤º
 set showtabline=2
 
-" ¥ä¥ó¥¯¤µ¤ì¤¿¥Æ¥­¥¹¥È¤ò¥¯¥ê¥Ã¥×¥Ü¡¼¥É¤Ë
+" ãƒ¤ãƒ³ã‚¯ã•ã‚ŒãŸãƒ†ã‚­ã‚¹ãƒˆã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«
 set clipboard=unnamed
 
-" ¥Ğ¥Ã¥¯¥¹¥Ú¡¼¥¹¥­¡¼¤Çºï½ü¤Ç¤­¤ëÊ¸»ú¤Î»ØÄê
+" ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ã§å‰Šé™¤ã§ãã‚‹æ–‡å­—ã®æŒ‡å®š
 set backspace=eol,indent,start
 
-" ¥¿¥Ö¤Î¥¹¥Ú¡¼¥¹¤òÈ¾³Ñ4Ê¸»úÊ¸¤Ë
+" ã‚¿ãƒ–ã®ã‚¹ãƒšãƒ¼ã‚¹ã‚’åŠè§’4æ–‡å­—æ–‡ã«
 set tabstop=4
 
-" ¼«Æ°¥¤¥ó¥Ç¥ó¥È¤Ç¤º¤ì¤ëÎÌ
+" è‡ªå‹•ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã§ãšã‚Œã‚‹é‡
 set shiftwidth=4
 
-" ²ş¹Ô»ş¤ËÁ°¤Î¹Ô¤Î¥¤¥ó¥Ç¥ó¥È¤ò·ÑÂ³
+" æ”¹è¡Œæ™‚ã«å‰ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’ç¶™ç¶š
 set autoindent
 
-" ¥¿¥Ö¤ò¶õÇò¤ËÃÖ¤­´¹¤¨¤Ê¤¤
+" ã‚¿ãƒ–ã‚’ç©ºç™½ã«ç½®ãæ›ãˆãªã„
 set noexpandtab
 
-" ¥¹¥Ş¡¼¥È¤Ê¥¿¥Ö
+" ã‚¹ãƒãƒ¼ãƒˆãªã‚¿ãƒ–
 set smarttab
 
-" ÊÔ½¸Ãæ¤Î¹ÔÈÖ¹æ¤ò¥Ï¥¤¥é¥¤¥È
+" ç·¨é›†ä¸­ã®è¡Œç•ªå·ã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 " set cursorline
 
-" vim¤Î¥Õ¥¡¥¤¥ëÌ¾Êä´°
+" vimã®ãƒ•ã‚¡ã‚¤ãƒ«åè£œå®Œ
 set wildmenu
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
-" ¥«¡¼¥½¥ë¤ò³ç¸ÌÆâ¤ËÆÍ¤Ã¹ş¤à
+" ã‚«ãƒ¼ã‚½ãƒ«ã‚’æ‹¬å¼§å†…ã«çªã£è¾¼ã‚€
 " inoremap { {}<Left>
 " inoremap [ []<Left>
 " inoremap ( ()<Left>
 
-" ¥Õ¥¡¥¤¥ë¥¿¥¤¥×´ØÏ¢¤òÍ­¸ú¤Ë
+" ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—é–¢é€£ã‚’æœ‰åŠ¹ã«
 filetype plugin indent on
 
-" PythonÍÑ¤ÎÀßÄê
+" Pythonç”¨ã®è¨­å®š
 autocmd FileType python set tabstop=4
 autocmd FileType python set expandtab
 autocmd FileType python let b:did_ftplugin = 1
 autocmd FileType python set completeopt-=preview
 autocmd FileType python inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" ¥«¥é¡¼¥¹¥­¡¼¥à¤ÎÀßÄê
+" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒ ã®è¨­å®š
 colorscheme molokai 
 highlight Normal ctermbg=none

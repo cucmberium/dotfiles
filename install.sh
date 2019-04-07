@@ -25,7 +25,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
 fi
 
-~/dotfiles/bin/setup
+bin/setup
 
 case "$(uname)" in
   "Darwin") ./bin/mitamae local $@ ./bootstrap.rb ;;

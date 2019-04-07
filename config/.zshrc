@@ -4,6 +4,8 @@
 if [ -e "${HOME}/.zplug" ]; then
     export ZPLUG_HOME=${HOME}/.zplug
     source ${ZPLUG_HOME}/init.zsh
+    zplug "zplug/zplug", hook-build:'zplug --self-manage'
+    zplug "~/.zsh", from:local, use:"<->_*.zsh"
     zplug "b4b4r07/enhancd", use:init.sh
     zplug "zsh-users/zsh-completions"
     zplug "zsh-users/zsh-history-substring-search", defer:2

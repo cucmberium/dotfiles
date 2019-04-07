@@ -13,4 +13,4 @@ end
 node.reverse_merge!(
   user: ENV['SUDO_USER'] || ENV['USER'],
 )
-nclude_role node[:platform]
+include_role node[:platform]

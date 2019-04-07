@@ -24,8 +24,8 @@ node.reverse_merge!(
   jenv: {
     global: '1.8',
     version_map: {
-      '12' => '/Library/Java/JavaVirtualMachines/jdk-12.jdk/Contents/Home',
-      '1.8' => '/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home'
+      '12' => '/Library/Java/JavaVirtualMachines/openjdk-12.jdk/Contents/Home',
+      '1.8' => '/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home'
     },
   },
 )

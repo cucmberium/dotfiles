@@ -40,11 +40,11 @@ include_cookbook 'vim'
 include_cookbook 'bin'
 
 # keyrepeat
-execute "defaults write -g InitialKeyRepeat -int 15" do
-  not_if "[ $(defaults read -g InitialKeyRepeat) -eq 15 ]"
+execute "defaults write -g InitialKeyRepeat -int 25" do
+  not_if "[ $(defaults read -g InitialKeyRepeat) -eq 25 ]"
 end
 
-execute "defaults write -g KeyRepeat -int 1" do
-  not_if "[ $(defaults read -g KeyRepeat) -eq 1 ]"
+execute "defaults write -g KeyRepeat -int 2" do
+  not_if "[ $(defaults read -g KeyRepeat) -eq 2 ]"
 end
 

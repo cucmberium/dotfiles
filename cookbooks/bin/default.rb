@@ -15,11 +15,13 @@ end
 
 # github binaries
 github_binary 'fzf' do
-  version    '0.16.5'
+  version    '0.18.0'
   repository 'junegunn/fzf-bin'
   case node[:platform]
   when 'darwin'
-    archive    'fzf-0.16.5-darwin_amd64.tgz'
+    archive  'fzf-0.18.0-darwin_amd64.tgz'
+  when 'ubuntu'
+    archive  'fzf-0.18.0-linux_amd64.tgz'
   else
     raise 'not supported now'
   end

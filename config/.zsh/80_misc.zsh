@@ -7,6 +7,7 @@ export RBENV_ROOT=$HOME/.rbenv
 export GOENV_ROOT=$HOME/.goenv
 export PYENV_ROOT=$HOME/.pyenv
 export JENV_ROOT=$HOME/.jenv
+export LINUXBREW_ROOT=$HOME/.linuxbrew
 
 if has 'rbenv'; then
   # For performance: eval "$(rbenv init -)"
@@ -25,7 +26,9 @@ if has 'jenv'; then
   # For performance: eval "$(jenv init -)"
   source $JENV_ROOT/completions/jenv.zsh
 fi
-
+if [ -d $LINUXBREW_ROOT ]; then
+  eval $($LINUXBREW_ROOT/bin/brew shellenv)
+fi
 
 zstyle :compinstall filename '~/.zshrc'
 zstyle ':completion:*' menu select

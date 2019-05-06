@@ -1,5 +1,8 @@
 typeset -gx -U path
 path=( \
+    ~/bin(N-/) \
+    ~/sbin(N-/) \
+    ~/scripts(N-/) \
     ~/.rbenv/bin(N-/) \
     ~/.rbenv/shims(N-/) \
     ~/.goenv/bin(N-/) \

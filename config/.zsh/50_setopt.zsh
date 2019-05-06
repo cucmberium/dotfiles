@@ -17,7 +17,7 @@ setopt correct_all
 setopt no_clobber
 
 # Deploy {a-c} -> a b c
-setopt brace_ccl
+#setopt brace_ccl
 
 # Enable 8bit
 setopt print_eight_bit
@@ -147,7 +147,7 @@ setopt auto_param_keys
 setopt auto_param_slash
 setopt auto_pushd
 setopt complete_in_word
-setopt globdots
+#setopt globdots
 setopt interactive_comments
 setopt list_types
 setopt list_packed

@@ -1,5 +1,4 @@
 
-alias tmux="TERM=screen-256color-bce tmux"
 alias ls='ls -F -G'
 alias ll='ls -l -h -F -G'
 alias la='ls -a -F -G'
@@ -8,6 +7,10 @@ alias df='df -h'
 alias less='less -R'
 alias mkdir='mkdir -p'
 alias vi='vim'
+
+if is_osx; then
+  alias tmux="TERM=screen-256color-bce tmux"
+fi
 
 alias cgrep='grep --color=always'
 alias nyancat='telnet nyancat.dakko.us'

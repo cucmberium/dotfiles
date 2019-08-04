@@ -83,5 +83,29 @@ if [[ $- == *i* ]]; then
   }
   zle     -N   fzf-history-widget
   bindkey '^R' fzf-history-widget
+  
+  # CTRL-E - Paste the selected ec2 instance
+  fzf-ec2-instances() {
+    local selected num
+    setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+    selected="$(
+      aws ec2 describe-instances |
+      jq -cr '.Reservations[].Instances[]
+                      | select(.State.Name == "running")
+                      | .InstanceId + " (" +
+                      ( [.Tags[] | .Key + ":" + .Value]
+                          | sort
+                          | join(", ")) + ")"' |
+      FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" $(__fzfcmd) -m "$@" | 
+      cut -d' ' -f1 
+    )"
+    LBUFFER="${LBUFFER}$selected "
+    local ret=$?
+    zle redisplay
+    typeset -f zle-line-init >/dev/null && zle zle-line-init
+    return $ret
+  }
+  zle     -N   fzf-ec2-instances
+  bindkey '^E' fzf-ec2-instances
 
 fi

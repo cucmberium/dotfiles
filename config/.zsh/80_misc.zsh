@@ -11,15 +11,19 @@ export LINUXBREW_ROOT=$HOME/.linuxbrew
 
 if has 'rbenv'; then
   # For performance: eval "$(rbenv init -)"
+  eval "$(rbenv init -)"
   source $RBENV_ROOT/completions/rbenv.zsh
 fi
 if has 'goenv'; then
   # For performance: eval "$(goenv init -)"
+  eval "$(goenv init -)"
   source $GOENV_ROOT/completions/goenv.zsh
 fi
 if has 'pyenv'; then
   # For performance: eval "$(pyenv init -)"
   # For performance: eval "$(pyenv virtualenv-init -)"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
   source $PYENV_ROOT/completions/pyenv.zsh
 fi
 if has 'jenv'; then

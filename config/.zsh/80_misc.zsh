@@ -6,7 +6,6 @@ stty -ixon -ixoff
 export RBENV_ROOT=$HOME/.rbenv
 export GOENV_ROOT=$HOME/.goenv
 export PYENV_ROOT=$HOME/.pyenv
-export JENV_ROOT=$HOME/.jenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew
 
 if has 'rbenv'; then

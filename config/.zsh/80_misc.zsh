@@ -10,25 +10,20 @@ export JENV_ROOT=$HOME/.jenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew
 
 if has 'rbenv'; then
-  # For performance: eval "$(rbenv init -)"
   eval "$(rbenv init -)"
   source $RBENV_ROOT/completions/rbenv.zsh
 fi
 if has 'goenv'; then
-  # For performance: eval "$(goenv init -)"
   eval "$(goenv init -)"
   source $GOENV_ROOT/completions/goenv.zsh
 fi
 if has 'pyenv'; then
-  # For performance: eval "$(pyenv init -)"
-  # For performance: eval "$(pyenv virtualenv-init -)"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
   source $PYENV_ROOT/completions/pyenv.zsh
 fi
-if has 'jenv'; then
-  # For performance: eval "$(jenv init -)"
-  source $JENV_ROOT/completions/jenv.zsh
+if has 'kubectl'; then
+  source <(kubectl completion zsh)
 fi
 if [ -d $LINUXBREW_ROOT ]; then
   eval $($LINUXBREW_ROOT/bin/brew shellenv)

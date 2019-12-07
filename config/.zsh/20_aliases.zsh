@@ -13,7 +13,6 @@ if is_osx; then
 fi
 
 alias cgrep='grep --color=always'
-alias nyancat='telnet nyancat.dakko.us'
 alias wttr='curl http://wttr.in/'
 alias pip-update-all-package="pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U"
 

@@ -46,4 +46,7 @@ brew "wget"
 brew "zlib"
 brew "zsh"
 brew "jq"
+brew "kubernetes-cli", link: false
+brew "kustomize"
+brew "stern"
 cask "docker"

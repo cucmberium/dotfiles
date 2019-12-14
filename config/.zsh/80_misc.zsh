@@ -17,6 +17,7 @@ if has 'goenv'; then
   source $GOENV_ROOT/completions/goenv.zsh
 fi
 if has 'pyenv'; then
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
   source $PYENV_ROOT/completions/pyenv.zsh

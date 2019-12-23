@@ -15,6 +15,7 @@ fi
 if has 'goenv'; then
   eval "$(goenv init -)"
   source $GOENV_ROOT/completions/goenv.zsh
+  export GO111MODULE=on
 fi
 if has 'pyenv'; then
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1

@@ -9,10 +9,6 @@ path=( \
     ~/.goenv/shims(N-/) \
     ~/.pyenv/bin(N-/) \
     ~/.pyenv/shims(N-/) \
-    ~/.jenv/bin(N-/) \
-    ~/.jenv/shims(N-/) \
-    ~/.scalaenv/bin(N-/) \
-    ~/.scalaenv/shims(N-/) \
     ~/.zplug/bin(N-/) \
     ~/.tmux/bin(N-/) \
     /usr/local/bin(N-/) \
@@ -34,7 +30,6 @@ setopt no_global_rcs
 # autoload
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
-autoload -Uz compinit && compinit -u
 
 # Language
 export LANGUAGE="ja_JP.UTF-8"

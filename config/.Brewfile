@@ -50,3 +50,4 @@ brew "kubernetes-cli", link: false
 brew "kustomize"
 brew "stern"
 cask "docker"
+cask "google-cloud-sdk"

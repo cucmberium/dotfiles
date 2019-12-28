@@ -7,6 +7,7 @@ export RBENV_ROOT=$HOME/.rbenv
 export GOENV_ROOT=$HOME/.goenv
 export PYENV_ROOT=$HOME/.pyenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew
+export GCLOUD_ROOT=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
 
 if has 'rbenv'; then
   eval "$(rbenv init -)"
@@ -28,6 +29,10 @@ if has 'kubectl'; then
 fi
 if [ -d $LINUXBREW_ROOT ]; then
   eval $($LINUXBREW_ROOT/bin/brew shellenv)
+fi
+if [ -d $GCLOUD_ROOT ]; then
+  source $GCLOUD_ROOT/path.zsh.inc
+  source $GCLOUD_ROOT/completion.zsh.inc
 fi
 
 zstyle :compinstall filename '~/.zshrc'

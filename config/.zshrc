@@ -9,7 +9,7 @@ if [ -e "${HOME}/.zplug" ]; then
     zplug "zplug/zplug", hook-build:'zplug --self-manage'
     zplug "~/.zsh", from:local, use:"<->_*.zsh", defer:2
     zplug "b4b4r07/enhancd", use:init.sh
-    zplug "zsh-users/zsh-completions", lazy:true
+    zplug "zsh-users/zsh-completions"
     zplug "zsh-users/zsh-history-substring-search", defer:3
     zplug "zsh-users/zsh-syntax-highlighting", defer:3
     zplug "mollifier/cd-gitroot"

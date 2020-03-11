@@ -3,16 +3,15 @@ if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
 fi
 
 # ZPlug settings
-if [ -e "${HOME}/.zplug" ]; then
-    export ZPLUG_HOME=${HOME}/.zplug
-    source ${ZPLUG_HOME}/init.zsh
-    zplug "zplug/zplug", hook-build:'zplug --self-manage'
-    zplug "~/.zsh", from:local, use:"<->_*.zsh", defer:2
-    zplug "b4b4r07/enhancd", use:init.sh
-    zplug "zsh-users/zsh-completions"
-    zplug "zsh-users/zsh-history-substring-search", defer:3
-    zplug "zsh-users/zsh-syntax-highlighting", defer:3
-    zplug "mollifier/cd-gitroot"
+if [ -e "${HOME}/.zinit" ]; then
+    export ZINIT_HOME=${HOME}/.zinit
+    source ${ZINIT_HOME}/bin/zinit.zsh
+    autoload -Uz _zinit
+    (( ${+_comps} )) && _comps[zinit]=_zinit
+    for f in $(ls ~/.zsh/*.zsh); do
+        zplugin snippet $f
+    done
+
     BULLETTRAIN_PROMPT_ADD_NEWLINE=false
     BULLETTRAIN_PROMPT_ORDER=(
         time
@@ -22,19 +21,21 @@ if [ -e "${HOME}/.zplug" ]; then
         git
         status
     )
-    zplug "caiogondim/bullet-train.zsh", use:"bullet-train.zsh-theme", as:theme
+    zinit snippet OMZ::lib/git.zsh
+    zinit snippet OMZ::plugins/git/git.plugin.zsh
+    zinit cdclear -q # <- forget completions provided up to this moment
+    setopt promptsubst
+    zinit light caiogondim/bullet-train.zsh
 
-    if ! zplug check --verbose; then
-        printf "Install? [y/N]: "
-        if read -q; then
-            echo; zplug install
-        fi
-    fi
+    zinit light zsh-users/zsh-syntax-highlighting
+    zinit light zsh-users/zsh-completions
+    zinit light zsh-users/zsh-history-substring-search
+    zinit light b4b4r07/emoji-cli
+    export ENHANCD_FILTER=fzf-tmux
+    zinit light b4b4r07/enhancd
+    zinit light mollifier/cd-gitroot
 
-    zplug load --verbose
-    
-    if zplug check b4b4r07/enhancd; then
-        # setting if enhancd is available
-        export ENHANCD_FILTER=fzf-tmux
-    fi
+    autoload -Uz compinit
+    compinit
+    zinit cdreplay -q
 fi

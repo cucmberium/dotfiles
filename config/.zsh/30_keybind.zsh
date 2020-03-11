@@ -84,7 +84,7 @@ if [[ $- == *i* ]]; then
   zle     -N   fzf-history-widget
   bindkey '^R' fzf-history-widget
   
-  # CTRL-E - Paste the selected ec2 instance
+  # CTRL-Q - Paste the selected ec2 instance
   fzf-ec2-instances() {
     local selected num
     setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
@@ -106,6 +106,6 @@ if [[ $- == *i* ]]; then
     return $ret
   }
   zle     -N   fzf-ec2-instances
-  bindkey '^E' fzf-ec2-instances
+  bindkey '^Q' fzf-ec2-instances
 
 fi

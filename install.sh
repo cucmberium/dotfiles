@@ -20,8 +20,10 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
 
   if is_setup 'Homebrew'; then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew doctor
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if [ "$(uname -m)" = 'arm64' ]; then
+      export PATH=$PATH:/opt/homebrew/bin
+    fi
   fi
 fi
 

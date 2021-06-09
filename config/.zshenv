@@ -1,27 +1,47 @@
 typeset -gx -U path
-path=( \
-    ~/bin(N-/) \
-    ~/sbin(N-/) \
-    ~/scripts(N-/) \
-    ~/.rbenv/bin(N-/) \
-    ~/.rbenv/shims(N-/) \
-    ~/.goenv/bin(N-/) \
-    ~/.goenv/shims(N-/) \
-    ~/.pyenv/bin(N-/) \
-    ~/.pyenv/shims(N-/) \
-    ~/.zplug/bin(N-/) \
-    ~/.tmux/bin(N-/) \
-    /usr/local/bin(N-/) \
-    /usr/local/sbin(N-/)
-    "$path[@]" \
-    )
+if [[ $(uname -m) = "x86_64" ]]; then
+    path=( \
+        ~/bin(N-/) \
+        ~/sbin(N-/) \
+        ~/scripts(N-/) \
+        ~/.rbenv/bin(N-/) \
+        ~/.rbenv/shims(N-/) \
+        ~/.goenv/bin(N-/) \
+        ~/.goenv/shims(N-/) \
+        ~/.pyenv/bin(N-/) \
+        ~/.pyenv/shims(N-/) \
+        ~/.zinit/bin(N-/) \
+        ~/.tmux/bin(N-/) \
+        /usr/local/bin(N-/) \
+        /usr/local/sbin(N-/)
+        "$path[@]" \
+        )
+else
+    path=( \
+        ~/bin(N-/) \
+        ~/sbin(N-/) \
+        ~/scripts(N-/) \
+        ~/.rbenv/bin(N-/) \
+        ~/.rbenv/shims(N-/) \
+        ~/.goenv/bin(N-/) \
+        ~/.goenv/shims(N-/) \
+        ~/.pyenv/bin(N-/) \
+        ~/.pyenv/shims(N-/) \
+        ~/.zinit/bin(N-/) \
+        ~/.tmux/bin(N-/) \
+        /opt/homebrew/bin(N-/)
+        /opt/homebrew/sbin(N-/)
+        /usr/local/bin(N-/) \
+        /usr/local/sbin(N-/)
+        "$path[@]" \
+        )
+fi
 
 typeset -gx -U fpath
 fpath=( \
     ~/.zsh/Completion(N-/) \
     ~/.zsh/functions(N-/) \
     ~/.zsh/plugins/zsh-completions(N-/) \
-    /usr/local/share/zsh/site-functions(N-/) \
     $fpath \
     )
 

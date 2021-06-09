@@ -2,7 +2,7 @@ if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
 
-# ZPlug settings
+# ZInit settings
 if [ -e "${HOME}/.zinit" ]; then
     export ZINIT_HOME=${HOME}/.zinit
     source ${ZINIT_HOME}/bin/zinit.zsh

@@ -15,30 +15,49 @@ end
 
 # github binaries
 github_binary 'fzf' do
-  version    '0.18.0'
-  repository 'junegunn/fzf-bin'
+  version    '0.27.2'
+  repository 'junegunn/fzf'
   case node[:platform]
   when 'darwin'
-    archive  'fzf-0.18.0-darwin_amd64.tgz'
+    case node[:arch]
+    when 'arm64'
+      archive 'fzf-0.27.2-darwin_arm64.zip'
+    when 'amd64'
+      archive 'fzf-0.27.2-darwin_amd64.zip'
+    else
+      raise 'not supported now'
+    end
   when 'ubuntu'
-    archive  'fzf-0.18.0-linux_amd64.tgz'
+    case node[:arch]
+    when 'arm64'
+      archive 'fzf-0.27.2-linux_arm64.tar.gz'
+    when 'amd64'
+      archive 'fzf-0.27.2-linux_amd64.tar.gz'
+    else
+      raise 'not supported now'
+    end
   else
     raise 'not supported now'
   end
 end
 
 github_binary 'jq' do
-  version     'jq-1.5'
-  repository  'stedolan/jq'
+  version    'jq-1.6'
+  repository 'stedolan/jq'
   case node[:platform]
   when 'darwin'
     archive     'jq-osx-amd64'
     binary_path 'jq-osx-amd64'
   when 'ubuntu'
-    archive     'jq-linux64'
-    binary_path 'jq-linux64'
+    case node[:arch]
+    when 'amd64'
+      archive     'jq-linux64'
+      binary_path 'jq-linux64'
+    else
+      raise 'not supported now'
+    end
   else
     raise 'not supported now'
   end
-  extract     false
+  extract false
 end

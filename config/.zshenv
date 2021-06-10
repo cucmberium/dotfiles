@@ -4,6 +4,7 @@ if [[ $(uname -m) = "x86_64" ]]; then
         ~/bin(N-/) \
         ~/sbin(N-/) \
         ~/scripts(N-/) \
+        ~/.local/bin(N-/) \
         ~/.rbenv/bin(N-/) \
         ~/.rbenv/shims(N-/) \
         ~/.goenv/bin(N-/) \
@@ -21,6 +22,7 @@ else
         ~/bin(N-/) \
         ~/sbin(N-/) \
         ~/scripts(N-/) \
+        ~/.local/bin(N-/) \
         ~/.rbenv/bin(N-/) \
         ~/.rbenv/shims(N-/) \
         ~/.goenv/bin(N-/) \

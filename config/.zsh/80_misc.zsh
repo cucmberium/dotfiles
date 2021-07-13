@@ -7,7 +7,13 @@ export RBENV_ROOT=$HOME/.rbenv
 export GOENV_ROOT=$HOME/.goenv
 export PYENV_ROOT=$HOME/.pyenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew
-export GCLOUD_ROOT=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
+if is_osx; then {
+  export GCLOUD_ROOT=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
+  if [ "$(uname -m)" = 'arm64' ]; then
+    export GCLOUD_ROOT=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
+  fi
+}
+fi
 
 if has 'rbenv'; then
   eval "$(rbenv init -)"

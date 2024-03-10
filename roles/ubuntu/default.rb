@@ -28,4 +28,3 @@ include_cookbook 'pyenv'
 include_cookbook 'goenv'
 include_cookbook 'vim'
 include_cookbook 'bin'
-

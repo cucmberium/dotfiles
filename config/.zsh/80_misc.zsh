@@ -8,10 +8,9 @@ export GOENV_ROOT=$HOME/.goenv
 export PYENV_ROOT=$HOME/.pyenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew
 if is_osx; then {
-  export GCLOUD_ROOT=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
-  if [ "$(uname -m)" = 'arm64' ]; then
-    export GCLOUD_ROOT=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/
-  fi
+  export GCLOUD_ROOT="$(brew --prefix)/share/google-cloud-sdk"
+} elif is_linux; then {
+  export GCLOUD_ROOT=/usr/lib/google-cloud-sdk
 }
 fi
 

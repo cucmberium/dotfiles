@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-version='1.12.6'
+version='1.14.1'
 mitamae_version="mitamae-${version}"
 
 if ! [ -f "bin/${mitamae_version}" ]; then
@@ -11,13 +11,22 @@ if ! [ -f "bin/${mitamae_version}" ]; then
       "arm64")
         mitamae_bin="mitamae-aarch64-darwin"
         ;;
-      "x86_64")
-        mitamae_bin="mitamae-x86_64-darwin"
+      *)
+        echo "not supported arch: $(uname -m)"
+        exit 1
         ;;
       esac
       ;;
     "Linux")
-      mitamae_bin="mitamae-x86_64-linux"
+      case "$(uname -m)" in
+      "x86_64")
+        mitamae_bin="mitamae-x86_64-linux"
+        ;;
+      *)
+        echo "not supported arch: $(uname -m)"
+        exit 1
+        ;;
+      esac
       ;;
     *)
       echo "unknown uname: $(uname)"

@@ -36,4 +36,3 @@ end
 execute "defaults write -g KeyRepeat -int 2" do
   not_if "[ $(defaults read -g KeyRepeat) -eq 2 ]"
 end
-

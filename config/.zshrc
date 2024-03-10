@@ -5,7 +5,7 @@ fi
 # ZInit settings
 if [ -e "${HOME}/.zinit" ]; then
     export ZINIT_HOME=${HOME}/.zinit
-    source ${ZINIT_HOME}/bin/zinit.zsh
+    source ${ZINIT_HOME}/zinit.zsh
     autoload -Uz _zinit
     (( ${+_comps} )) && _comps[zinit]=_zinit
     for f in $(ls ~/.zsh/*.zsh); do

@@ -9,4 +9,3 @@ include_cookbook 'functions'
     owner node[:user]
   end
 end
-

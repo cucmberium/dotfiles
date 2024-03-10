@@ -10,8 +10,8 @@ else
   end
 end
 
-git File.join(ENV['HOME'], '.zinit/bin') do
-  repository "https://github.com/zdharma/zinit.git"
+git File.join(ENV['HOME'], '.zinit') do
+  repository "https://github.com/zdharma-continuum/zinit.git"
 end
 
 dotfile '.zshenv'
@@ -28,11 +28,7 @@ when 'darwin'
     not_if "echo $SHELL | grep /bin/zsh"
   end
 else
-  execute "command -v zsh | sudo tee -a /etc/shells" do
-    not_if "grep '^/home/#{node[:user]}/.linuxbrew/bin/zsh' /etc/shells"
-  end
-
-  execute "sudo chsh -s ~/.linuxbrew/bin/zsh #{node[:user]}" do
-    not_if "echo $SHELL | grep ~/.linuxbrew/bin/zsh"
+  execute "sudo chsh -s /bin/zsh #{node[:user]}" do
+    not_if "echo $SHELL | grep /bin/zsh"
   end
 end

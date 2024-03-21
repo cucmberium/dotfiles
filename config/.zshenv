@@ -54,7 +54,7 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 
 # Language
-export LANGUAGE="ja_JP.UTF-8"
+export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"

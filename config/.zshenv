@@ -44,6 +44,7 @@ fpath=( \
     ~/.zsh/Completion(N-/) \
     ~/.zsh/functions(N-/) \
     ~/.zsh/plugins/zsh-completions(N-/) \
+    ~/.zsh/.rbenv/completions(N-/) \
     $fpath \
     )
 

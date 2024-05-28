@@ -16,7 +16,6 @@ fi
 
 if has 'rbenv'; then
   eval "$(rbenv init -)"
-  source $RBENV_ROOT/completions/rbenv.zsh
 fi
 if has 'goenv'; then
   eval "$(goenv init -)"

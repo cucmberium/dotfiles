@@ -1,6 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 brew "openssl"
 brew "readline"
 brew "autoconf"

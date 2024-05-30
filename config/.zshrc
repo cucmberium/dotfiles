@@ -21,6 +21,7 @@ if [ -e "${HOME}/.zinit" ]; then
         git
         status
     )
+    zstyle ':omz:alpha:lib:git' async-prompt no
     zinit snippet OMZ::lib/git.zsh
     zinit snippet OMZ::plugins/git/git.plugin.zsh
     zinit cdclear -q # <- forget completions provided up to this moment

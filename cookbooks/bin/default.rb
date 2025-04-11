@@ -5,23 +5,27 @@ wget_binary 'fzf-tmux' do
   url 'https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux'
 end
 
-wget_binary 'embulk' do
-  url 'https://dl.embulk.org/embulk-latest.jar'
-end
-
 wget_binary 'digdag' do
   url 'https://dl.digdag.io/digdag-latest'
 end
 
 # github binaries
+github_binary 'embulk' do
+  version     'v0.11.5'
+  repository  'embulk/embulk'
+  archive     'embulk-0.11.5.jar'
+  binary_path 'embulk-0.11.5.jar'
+  extract     false
+end
+
 github_binary 'fzf' do
-  version    '0.61.1'
+  version    'v0.61.1'
   repository 'junegunn/fzf'
   case node[:platform]
   when 'darwin'
     case node[:arch]
     when 'arm64'
-      archive 'fzf-0.61.1-darwin_arm64.zip'
+      archive 'fzf-0.61.1-darwin_arm64.tar.gz'
     else
       raise 'not supported arch: ' + node[:arch]
     end

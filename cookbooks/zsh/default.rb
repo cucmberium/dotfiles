@@ -5,6 +5,9 @@ else
   package 'language-pack-ja' do
     user 'root'
   end
+  package 'language-pack-en' do
+    user 'root'
+  end
   package 'zsh' do
     user 'root'
   end

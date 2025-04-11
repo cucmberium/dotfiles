@@ -15,20 +15,20 @@ end
 
 # github binaries
 github_binary 'fzf' do
-  version    '0.46.1'
+  version    '0.61.1'
   repository 'junegunn/fzf'
   case node[:platform]
   when 'darwin'
     case node[:arch]
     when 'arm64'
-      archive 'fzf-0.46.1-darwin_arm64.zip'
+      archive 'fzf-0.61.1-darwin_arm64.zip'
     else
       raise 'not supported arch: ' + node[:arch]
     end
   when 'ubuntu'
     case node[:arch]
     when 'x86_64'
-      archive 'fzf-0.46.1-linux_amd64.tar.gz'
+      archive 'fzf-0.61.1-linux_amd64.tar.gz'
     else
       raise 'not supported arch: ' + node[:arch]
     end
@@ -39,7 +39,7 @@ end
 
 github_binary 'jq' do
   version    'jq-1.7.1'
-  repository 'stedolan/jq'
+  repository 'jqlang/jq'
   case node[:platform]
   when 'darwin'
     archive     'jq-osx-amd64'

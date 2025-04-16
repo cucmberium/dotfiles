@@ -26,7 +26,7 @@ fi
 if has 'pyenv'; then
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
   eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  eval "$(pyenv virtualenv-init - | sed s/precmd/chpwd/g)"  # https://github.com/pyenv/pyenv-virtualenv/issues/259#issuecomment-1096144748
   source $PYENV_ROOT/completions/pyenv.zsh
 fi
 if has 'nodenv'; then

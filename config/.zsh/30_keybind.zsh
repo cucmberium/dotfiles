@@ -1,4 +1,3 @@
-
 # Use emacs mode
 bindkey -e
 

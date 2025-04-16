@@ -3,7 +3,6 @@ if [[ $(uname -m) = "x86_64" ]]; then
     path=( \
         ~/bin(N-/) \
         ~/sbin(N-/) \
-        ~/scripts(N-/) \
         ~/.local/bin(N-/) \
         ~/.rbenv/bin(N-/) \
         ~/.rbenv/shims(N-/) \
@@ -21,7 +20,6 @@ else
     path=( \
         ~/bin(N-/) \
         ~/sbin(N-/) \
-        ~/scripts(N-/) \
         ~/.local/bin(N-/) \
         ~/.rbenv/bin(N-/) \
         ~/.rbenv/shims(N-/) \
@@ -41,10 +39,7 @@ fi
 
 typeset -gx -U fpath
 fpath=( \
-    ~/.zsh/Completion(N-/) \
-    ~/.zsh/functions(N-/) \
-    ~/.zsh/plugins/zsh-completions(N-/) \
-    ~/.zsh/.rbenv/completions(N-/) \
+    ~/.rbenv/completions(N-/) \
     $fpath \
     )
 

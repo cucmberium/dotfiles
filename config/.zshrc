@@ -2,6 +2,10 @@ if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi
 
+for f in ~/.zsh/*.zsh; do
+  [[ $f -nt $f.zwc ]] && zcompile $f
+done
+
 # ZInit settings
 if [ -e "${HOME}/.zinit" ]; then
     export ZINIT_HOME=${HOME}/.zinit
@@ -9,7 +13,7 @@ if [ -e "${HOME}/.zinit" ]; then
     autoload -Uz _zinit
     (( ${+_comps} )) && _comps[zinit]=_zinit
     for f in $(ls ~/.zsh/*.zsh); do
-        zplugin snippet $f
+        zinit snippet $f
     done
 
     BULLETTRAIN_PROMPT_ADD_NEWLINE=false
@@ -27,16 +31,20 @@ if [ -e "${HOME}/.zinit" ]; then
     zinit cdclear -q # <- forget completions provided up to this moment
     setopt promptsubst
     zinit light caiogondim/bullet-train.zsh
-
     zinit light zsh-users/zsh-syntax-highlighting
     zinit light zsh-users/zsh-completions
+    zinit light zsh-users/zsh-autosuggestions
     zinit light zsh-users/zsh-history-substring-search
+    zinit light Aloxaf/fzf-tab
     zinit light b4b4r07/emoji-cli
-    export ENHANCD_FILTER=fzf-tmux
     zinit light b4b4r07/enhancd
     zinit light mollifier/cd-gitroot
 
     autoload -Uz compinit
-    compinit
+    if [[ ! -f ~/.zcompdump || ~/.zcompdump -ot ~/.zshrc ]]; then
+      compinit -C
+    else
+      compinit
+    fi
     zinit cdreplay -q
 fi

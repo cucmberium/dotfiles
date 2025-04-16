@@ -1,5 +1,5 @@
 has() {
-    type "${1:?too few arguments}" &>/dev/null
+    command -v "$1" >/dev/null 2>&1
 }
 
 # is_login_shell returns true if current shell is first shell

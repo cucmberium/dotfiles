@@ -1,4 +1,3 @@
-
 alias ls='ls -F -G'
 alias ll='ls -l -h -F -G'
 alias la='ls -a -F -G'
@@ -22,7 +21,3 @@ if has 'colordiff'; then
 else
     alias diff='diff -u'
 fi
-
-# http://mollifier.hatenablog.com/entry/20101227/p1
-autoload -Uz zmv
-alias zmv='noglob zmv -W'

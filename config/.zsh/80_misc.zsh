@@ -6,6 +6,7 @@ stty -ixon -ixoff
 export RBENV_ROOT=$HOME/.rbenv
 export GOENV_ROOT=$HOME/.goenv
 export PYENV_ROOT=$HOME/.pyenv
+export NODENV_ROOT=$HOME/.nodenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew
 if is_osx; then {
   export GCLOUD_ROOT="$(brew --prefix)/share/google-cloud-sdk"
@@ -27,6 +28,10 @@ if has 'pyenv'; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
   source $PYENV_ROOT/completions/pyenv.zsh
+fi
+if has 'nodenv'; then
+  eval "$(nodenv init -)"
+  source $NODENV_ROOT/completions/nodenv.zsh
 fi
 if has 'kubectl'; then
   source <(kubectl completion zsh)

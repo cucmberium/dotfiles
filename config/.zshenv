@@ -10,6 +10,8 @@ if [[ $(uname -m) = "x86_64" ]]; then
         ~/.goenv/shims(N-/) \
         ~/.pyenv/bin(N-/) \
         ~/.pyenv/shims(N-/) \
+        ~/.nodenv/bin(N-/) \
+        ~/.nodenv/shims(N-/) \
         ~/.zinit/bin(N-/) \
         ~/.tmux/bin(N-/) \
         /usr/local/bin(N-/) \
@@ -27,6 +29,8 @@ else
         ~/.goenv/shims(N-/) \
         ~/.pyenv/bin(N-/) \
         ~/.pyenv/shims(N-/) \
+        ~/.nodenv/bin(N-/) \
+        ~/.nodenv/shims(N-/) \
         ~/.zinit/bin(N-/) \
         ~/.tmux/bin(N-/) \
         /opt/homebrew/bin(N-/)
@@ -101,3 +105,5 @@ if [[ $UID == 0 ]]; then
     unset HISTFILE
     export SAVEHIST=0
 fi
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

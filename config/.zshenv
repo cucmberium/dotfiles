@@ -14,6 +14,7 @@ if [[ $(uname -m) = "x86_64" ]]; then
         ~/.nodenv/shims(N-/) \
         ~/.zinit/bin(N-/) \
         ~/.tmux/bin(N-/) \
+        ~/.rd/bin(N-/) \
         /usr/local/bin(N-/) \
         /usr/local/sbin(N-/)
         "$path[@]" \
@@ -33,6 +34,7 @@ else
         ~/.nodenv/shims(N-/) \
         ~/.zinit/bin(N-/) \
         ~/.tmux/bin(N-/) \
+        ~/.rd/bin(N-/) \
         /opt/homebrew/bin(N-/)
         /opt/homebrew/sbin(N-/)
         /usr/local/bin(N-/) \

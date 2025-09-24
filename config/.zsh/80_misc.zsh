@@ -36,6 +36,9 @@ fi
 if has 'kubectl'; then
   source <(kubectl completion zsh)
 fi
+if has 'direnv'; then
+  eval "$(direnv hook zsh)"
+fi
 if [ -d $LINUXBREW_ROOT ]; then
   eval $($LINUXBREW_ROOT/bin/brew shellenv)
 fi

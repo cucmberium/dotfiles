@@ -46,6 +46,7 @@ fi
 typeset -gx -U fpath
 fpath=( \
     ~/.rbenv/completions(N-/) \
+    ~/.nodenv/completions(N-/) \
     $fpath \
     )
 

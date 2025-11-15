@@ -30,8 +30,7 @@ if has 'pyenv'; then
   source $PYENV_ROOT/completions/pyenv.zsh
 fi
 if has 'nodenv'; then
-  eval "$(nodenv init -)"
-  source $NODENV_ROOT/completions/nodenv.zsh
+  eval "$(nodenv init - --no-rehash zsh)"
 fi
 if has 'kubectl'; then
   source <(kubectl completion zsh)

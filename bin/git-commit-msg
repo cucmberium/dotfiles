@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+diff="$(git diff --staged)"
+if [[ -z "$diff" ]]; then
+  echo "No staged changes. Run: git add -p"
+  exit 1
+fi
+
+prompt=$'Generate ONE git commit message in Conventional Commits format.\n'\
+$'- Max 72 chars summary\n- Imperative mood\n- No backticks\n\n'\
+$'Staged diff:\n'\
+"$diff"
+
+msg="$(codex exec --json "$prompt" | jq -r '.output_text' )"
+echo "Commit message:"
+echo "$msg"
+echo
+read -r -p "Commit with this message? [y/N] " yn
+if [[ "$yn" =~ ^[Yy]$ ]]; then
+  git commit -m "$msg"
+fi

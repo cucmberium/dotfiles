@@ -61,3 +61,10 @@ github_binary 'jq' do
   end
   extract false
 end
+
+# dotfiles script -> ~/bin
+link File.join(ENV['HOME'], 'bin', 'git-commit-msg') do
+  to File.expand_path('../../../bin/git-commit-msg', __FILE__)
+  user node[:user]
+  force true
+end

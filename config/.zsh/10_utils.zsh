@@ -152,7 +152,6 @@ ask() {
     esac
 }
 
-
 cpu_cores() {
     if is_osx; then
         sysctl -n hw.ncpu

@@ -34,19 +34,36 @@ fi
 if has 'nodenv'; then
   eval "$(nodenv init - --no-rehash zsh)"
 fi
-if has 'kubectl'; then
-  source <(kubectl completion zsh)
-fi
 if has 'direnv'; then
   eval "$(direnv hook zsh)"
 fi
 if [ -d $LINUXBREW_ROOT ]; then
   eval $($LINUXBREW_ROOT/bin/brew shellenv)
 fi
-if [ -d $GCLOUD_ROOT ]; then
+if [[ -d $GCLOUD_ROOT ]]; then
   source $GCLOUD_ROOT/path.zsh.inc
-  source $GCLOUD_ROOT/completion.zsh.inc
 fi
+
+__load_deferred_completions() {
+  if has 'kubectl'; then
+    source <(kubectl completion zsh)
+  fi
+  if [[ -r $GCLOUD_ROOT/completion.zsh.inc ]]; then
+    source $GCLOUD_ROOT/completion.zsh.inc
+  fi
+}
+
+__schedule_deferred_completions() {
+  add-zsh-hook -d precmd __schedule_deferred_completions
+  if zmodload zsh/sched 2>/dev/null; then
+    sched +1 __load_deferred_completions
+  else
+    __load_deferred_completions
+  fi
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd __schedule_deferred_completions
 
 zstyle :compinstall filename '~/.zshrc'
 zstyle ':completion:*' menu select

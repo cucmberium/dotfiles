@@ -7,6 +7,7 @@ fi
 
 export RBENV_ROOT=$HOME/.rbenv
 export GOENV_ROOT=$HOME/.goenv
+export GOENV_PATH_ORDER=front
 export PYENV_ROOT=$HOME/.pyenv
 export NODENV_ROOT=$HOME/.nodenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew

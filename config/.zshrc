@@ -1,3 +1,6 @@
+[[ -o interactive ]] || return 0
+[[ -t 0 && -t 1 ]] || return 0
+
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
    zcompile ~/.zshrc
 fi

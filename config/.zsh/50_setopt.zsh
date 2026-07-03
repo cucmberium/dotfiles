@@ -92,8 +92,10 @@ setopt extended_glob
 setopt mark_dirs
 
 # Automaticall escape URL when copy and paste
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
+if [[ -o interactive ]]; then
+  autoload -Uz url-quote-magic
+  zle -N self-insert url-quote-magic
+fi
 
 # Let me know mail arrival
 setopt mail_warning

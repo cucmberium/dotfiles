@@ -1,7 +1,9 @@
 umask 022
 
 # Ctrl + S for Vim
-stty -ixon -ixoff
+if [[ -t 0 ]]; then
+  stty -ixon -ixoff
+fi
 
 export RBENV_ROOT=$HOME/.rbenv
 export GOENV_ROOT=$HOME/.goenv

@@ -67,10 +67,16 @@ export EDITOR=vim
 export GIT_EDITOR="${EDITOR}"
 
 # Pager
-export PAGER=less
-
-# Less status line
-export LESS='-R -f -X -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+if [[ -o interactive && -t 1 ]]; then
+    export PAGER=less
+    export GIT_PAGER="${GIT_PAGER:-less}"
+    export LESS='-R -f -X -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+else
+    export PAGER=cat
+    export GIT_PAGER=cat
+    export LESS='-F -R -X'
+    export GIT_TERMINAL_PROMPT=0
+fi
 export LESSCHARSET='utf-8'
 
 # Less man page colors (makes Man pages more readable).
@@ -95,17 +101,23 @@ export PATH="$GOBIN:$PATH"
 export CORRECT_IGNORE='_*'
 export CORRECT_IGNORE_FILE='.*'
 export WORDCHARS='*?_-.[]~!#$%^(){}<>'
-export TERM="xterm-256color"
+export TERM="${TERM:-xterm-256color}"
 
 # History file and its size
-export HISTFILE=~/.zsh_history
-export HISTSIZE=1000000
-export SAVEHIST=1000000
-# Share history with different sessions
-setopt share_history
-# Do not add in root
-if [[ $UID == 0 ]]; then
+if [[ -o interactive && -t 0 && -t 1 ]]; then
+    export HISTFILE=~/.zsh_history
+    export HISTSIZE=1000000
+    export SAVEHIST=1000000
+    # Share history with different sessions
+    setopt share_history
+    # Do not add in root
+    if [[ $UID == 0 ]]; then
+        unset HISTFILE
+        export SAVEHIST=0
+    fi
+else
     unset HISTFILE
+    export HISTSIZE=0
     export SAVEHIST=0
 fi
 

@@ -11,12 +11,6 @@ export GOENV_PATH_ORDER=front
 export PYENV_ROOT=$HOME/.pyenv
 export NODENV_ROOT=$HOME/.nodenv
 export LINUXBREW_ROOT=$HOME/.linuxbrew
-if is_osx; then {
-  export GCLOUD_ROOT="$(brew --prefix)/share/google-cloud-sdk"
-} elif is_linux; then {
-  export GCLOUD_ROOT=/usr/lib/google-cloud-sdk
-}
-fi
 
 if has 'rbenv'; then
   eval "$(rbenv init -)"
@@ -41,16 +35,10 @@ fi
 if [ -d $LINUXBREW_ROOT ]; then
   eval $($LINUXBREW_ROOT/bin/brew shellenv)
 fi
-if [[ -d $GCLOUD_ROOT ]]; then
-  source $GCLOUD_ROOT/path.zsh.inc
-fi
 
 __load_deferred_completions() {
   if has 'kubectl'; then
     source <(kubectl completion zsh)
-  fi
-  if [[ -r $GCLOUD_ROOT/completion.zsh.inc ]]; then
-    source $GCLOUD_ROOT/completion.zsh.inc
   fi
 }
 
